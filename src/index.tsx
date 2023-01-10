@@ -7,6 +7,7 @@ import "./styles.css";
 
 const container = document.getElementById("root") as Element;
 const root = createRoot(container);
+
 root.render(
   <div>
     <h1>Zenfit Meal [v2]</h1>

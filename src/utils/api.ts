@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
 const client = axios.create({
   baseURL: '/'
 });
@@ -8,16 +7,10 @@ const client = axios.create({
 export const CancelToken = axios.CancelToken;
 export const isCancel = axios.isCancel;
 
-/** 
- * @param {number} clientId 
- */
-export function fetchPlans(clientId) {
+export function fetchPlans(clientId: string) {
   return client.get(`/api/v3/meal/client/${clientId}`);
 }
 
-/**
- * @param {Object} params 
- */
 export function fetchRecipes(params, options = {}) {
   return client.get('/api/recipe/get-recipes', {
     params,
@@ -25,34 +18,27 @@ export function fetchRecipes(params, options = {}) {
   });
 }
 
-/**
- * @param {*} params 
- */
 export function deletePlan(params) {
   return client.delete('/api/v3/meal/plan/delete', { params });
 }
 
-/**
- * 
- * @param {Object} params 
- */
 export function deleteMeal(params) {
   return client.delete('/api/v3/meal', { params });
 }
 
-/**
- * @param {Object} plan 
- * @param {?Object} options
- * 
- * @return {Promise<any>}
- */
-export function fetchPdf(plan, options = {}) {
+type FetchPdfOptions = {
+  params: {
+    cancelToken: string;
+  };
+}
+
+export function fetchPdf(plan, options: FetchPdfOptions) {
   return client.get(`/pdf/exportPlansPdfMealClient/${plan.id}`, {
+    ...options,
     params: {
       name: `${plan.client_name}-mealplan`,
       ...(options.params || {}),
       varsion: 2,
     },
-    ...options,
   });
 }

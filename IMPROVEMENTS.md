@@ -25,3 +25,9 @@
 
 ## TODO
 - Investigate more the `containers` folder
+
+## Assignments
+### Typescript migration
+- CRA supports TS since `v2`, so just need to add TS configuration to start with
+- Gradual migration, use TS on all new features and refactor all relevant files.
+- Start the first migration batch with all independent modules (utils, atom components).
