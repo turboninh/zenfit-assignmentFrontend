@@ -5,30 +5,30 @@ import media from '../utils/media';
 import { IconButton, VerticalDivider } from './UI';
 
 export const DishCaption = styled.div`
-  flex: 1;
-  display: block;
-  position: relative;
-  padding: 0 8px;
+	flex: 1;
+	display: block;
+	position: relative;
+	padding: 0 8px;
 
-  h5 {
-    margin: 0 0 2px;
-  }
+	h5 {
+		margin: 0 0 2px;
+	}
 
-  span {
-    color: #8898aa;
-    font-size: 12px;
-  }
+	span {
+		color: #8898aa;
+		font-size: 12px;
+	}
 
-  ${media.desktop`
+	${media.desktop`
     display: none;
   `}
 `;
 
 export const DishImageBox = styled.div`
-  flex: 0 0 auto;
-  position: relative;
+	flex: 0 0 auto;
+	position: relative;
 
-  ${media.desktop`
+	${media.desktop`
     flex: initial;
     position: absolute;
     top: 50%;
@@ -38,34 +38,34 @@ export const DishImageBox = styled.div`
 `;
 
 export const DishImage = styled.img`
-  display: block;
-  object-fit: cover;
-  border-radius: 4px;
-  width: 74px;
-  height: 74px;
-  min-height: 74px;
-  position: relative;
+	display: block;
+	object-fit: cover;
+	border-radius: 4px;
+	width: 74px;
+	height: 74px;
+	min-height: 74px;
+	position: relative;
 
-  ${media.desktop`
+	${media.desktop`
     border-radius: 2px;
   `}
 `;
 
 export const DishActions = styled.div`
-  color: #32325d;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: white;
-  border-top: 1px solid #e6ebf1;
-  transition: opacity .3s ease;
-  z-index: 5;
-  width: 100%;
-  flex: 1 1 100%;
-  margin-top: 8px;
-  padding-top: 6px;
+	color: #32325d;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: white;
+	border-top: 1px solid #e6ebf1;
+	transition: opacity 0.3s ease;
+	z-index: 5;
+	width: 100%;
+	flex: 1 1 100%;
+	margin-top: 8px;
+	padding-top: 6px;
 
-  ${media.desktop`
+	${media.desktop`
     border: 1px solid #e6ebf1;
     border-radius: 4px;
     position: absolute;
@@ -79,81 +79,82 @@ export const DishActions = styled.div`
     padding-top: 0;
   `}
 
-  ${VerticalDivider} {
-    color: #e6ebf1;
-  }
+	${VerticalDivider} {
+		color: #e6ebf1;
+	}
 
-  ${IconButton} {
-    margin: 0 4px;
-  }
+	${IconButton} {
+		margin: 0 4px;
+	}
 `;
 
 export const DishPopover = styled.div`
-  backface-visibility: hidden;
-  position: absolute;
-  left: -32px;
-  right: -32px;
-  top: 0;
-  background-color: #32325d;
-  border-radius: 4px;
-  box-shadow: 0 13px 27px -5px rgba(50,50,93,.25), 0 8px 16px -8px rgba(0,0,0,.3), 0 -6px 16px -6px rgba(0,0,0,.025);
-  transition-property: transform,opacity,-webkit-transform;
-  transition-duration: .15s;
-  transition-timing-function: ease-in-out;
-  pointer-events: none;
-  opacity: 0;
-  transform: translateY(calc(-100% + 10px)) scale(.75);
-  transform-origin: 20px calc(100% + 12px);
-  color: #fff;
-  padding: 8px;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 1.5em;
-  z-index: 100;
-  display: ${props => props.hidden ? 'none' : 'block'};
+	backface-visibility: hidden;
+	position: absolute;
+	left: -32px;
+	right: -32px;
+	top: 0;
+	background-color: #32325d;
+	border-radius: 4px;
+	box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25), 0 8px 16px -8px rgba(0, 0, 0, 0.3),
+		0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+	transition-property: transform, opacity, -webkit-transform;
+	transition-duration: 0.15s;
+	transition-timing-function: ease-in-out;
+	pointer-events: none;
+	opacity: 0;
+	transform: translateY(calc(-100% + 10px)) scale(0.75);
+	transform-origin: 20px calc(100% + 12px);
+	color: #fff;
+	padding: 8px;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 1.5em;
+	z-index: 100;
+	display: ${(props) => (props.hidden ? 'none' : 'block')};
 
-  &::before {
-    content: "";
-    position: absolute;
-    bottom: -2px;
-    left: calc(50% - 8px);
-    width: 8px;
-    height: 8px;
-    transform: rotate(45deg);
-    border-radius: 0 0 2px 0;
-    background-color: inherit;
-    box-shadow: 3px 3px 5px rgba(82,95,127,.04);
-  }
+	&::before {
+		content: '';
+		position: absolute;
+		bottom: -2px;
+		left: calc(50% - 8px);
+		width: 8px;
+		height: 8px;
+		transform: rotate(45deg);
+		border-radius: 0 0 2px 0;
+		background-color: inherit;
+		box-shadow: 3px 3px 5px rgba(82, 95, 127, 0.04);
+	}
 `;
 
 export const Dish = styled.div`
-  backface-visibility: hidden;
-  display: flex;
-  position: relative;
-  width: 100%;
-  margin-bottom: 8px;
-  border-radius: 4px;
-  cursor: pointer;
-  padding: 8px;
-  flex-wrap: wrap;
+	backface-visibility: hidden;
+	display: flex;
+	position: relative;
+	width: 100%;
+	margin-bottom: 8px;
+	border-radius: 4px;
+	cursor: pointer;
+	padding: 8px;
+	flex-wrap: wrap;
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: #fff;
-    box-shadow: 0 3px 6px -2px rgba(50,50,93,.05);
-    border-radius: 4px;
-    border: 1px solid #e6ebf1;
-    transform-origin: center center;
-    transition: all .2s;
-    will-change: transform;
-  }
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background-color: #fff;
+		box-shadow: 0 3px 6px -2px rgba(50, 50, 93, 0.05);
+		border-radius: 4px;
+		border: 1px solid #e6ebf1;
+		transform-origin: center center;
+		transition: all 0.2s;
+		will-change: transform;
+	}
 
-  ${media.desktop`
+	${media.desktop`
     align-items: center;
     justify-content: center;
     width: 84px;
@@ -205,33 +206,33 @@ export const Dish = styled.div`
 `;
 
 export const DishOverlay = styled.div`
-  display: flex;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-color: rgba(222, 40, 30, .75);
-  border-radius: 4px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  z-index: 200;
+	display: flex;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: rgba(222, 40, 30, 0.75);
+	border-radius: 4px;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: #fff;
+	z-index: 200;
 
-  span {
-    display: block;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 0 4px;
-    text-align: center;
-  }
+	span {
+		display: block;
+		font-size: 12px;
+		font-weight: 600;
+		padding: 0 4px;
+		text-align: center;
+	}
 
-  svg {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    fill: currentColor;
-    margin-bottom: 4px;
-  }
+	svg {
+		display: inline-block;
+		width: 16px;
+		height: 16px;
+		fill: currentColor;
+		margin-bottom: 4px;
+	}
 `;

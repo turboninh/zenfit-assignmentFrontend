@@ -1,4 +1,4 @@
 export default {
-  RECIPES: 'modal.recipes',
-  SETTINGS: 'modal.settings',
+	RECIPES: 'modal.recipes',
+	SETTINGS: 'modal.settings',
 };

@@ -5,12 +5,12 @@ import media from '../utils/media';
 import { IconBox } from './UI';
 
 export const PlanInfo = styled.div`
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #e6ebf1;
-  flex-wrap: wrap;
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid #e6ebf1;
+	flex-wrap: wrap;
 
-  ${media.desktop`
+	${media.desktop`
     flex-wrap: nowrap;
   `}
 `;
@@ -20,8 +20,8 @@ export const PlanInfoItem = styled.div`
   padding: 8px 16px;
   position: relative;
   text-align: left;
-  flex: ${props => props.fill ? '1 1 100%' : '0 0 auto'};
-  width: ${props => props.fill ? '100%' : '50%'}
+  flex: ${(props) => (props.fill ? '1 1 100%' : '0 0 auto')};
+  width: ${(props) => (props.fill ? '100%' : '50%')}
 
   & + &::before {
     content: "";
@@ -41,7 +41,6 @@ export const PlanInfoItem = styled.div`
   ${media.desktop`
     padding: 16px;
     width: auto;
-    flex: ${props => props.fill ?  '1 1 auto' : '0 0 auto'};
+    flex: ${(props) => (props.fill ? '1 1 auto' : '0 0 auto')};
   `}
 `;
-
