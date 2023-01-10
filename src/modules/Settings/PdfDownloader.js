@@ -1,6 +1,6 @@
 import update from 'react-addons-update';
 import React, { PureComponent } from 'react';
-import Loading from '../../Loading';
+import Loading from '../../components/Loading';
 import { TextAlert } from '../../components/UI';
 import { timeout } from '../../utils/helpers';
 import * as api from '../../utils/api';

@@ -1,7 +1,7 @@
 import React, { cloneElement, useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { PopupBox, PopupMenu, PopupOptions, PopupOption } from './components/Popup';
-import { HorizontalDivider, Link } from './components/UI';
+import { PopupBox, PopupMenu, PopupOptions, PopupOption } from './components';
+import { HorizontalDivider, Link } from '../UI';
 
 const Popup = React.memo((props) => {
 	const node = useRef();

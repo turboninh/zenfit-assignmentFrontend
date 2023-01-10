@@ -1,5 +1,5 @@
 import React from 'react';
-import Loading from '../../Loading';
+import Loading from '../../components/Loading';
 import { Card, CardBody, CardTitle } from '../../components/Card';
 import { Center } from '../../components/UI';
 

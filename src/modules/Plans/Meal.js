@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Dish from './Dish';
-import Popup from '../../Popup';
+import Popup from '../../components/PopUp';
 import ModalContainer from '../../containers/Modal';
 import ModalTypes from '../../constants/ModalTypes';
 import MacroSplitTypes from '../../constants/MacroSplitTypes';

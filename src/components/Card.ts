@@ -1,7 +1,7 @@
 // eslint-disable-next-line
 import React from 'react';
 import styled from 'styled-components';
-import { PopupBox } from './Popup';
+import { PopupBox } from './PopUp/components';
 
 export const Card = styled.div`
 	background: white;

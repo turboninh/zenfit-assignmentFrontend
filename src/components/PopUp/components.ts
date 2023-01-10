@@ -1,7 +1,7 @@
 // eslint-disable-next-line
 import React from 'react';
 import styled from 'styled-components';
-import { HorizontalDivider, Link } from './UI';
+import { HorizontalDivider, Link } from '../UI';
 
 export const PopupMenu = styled.div`
 	padding: 10px 5px;

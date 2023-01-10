@@ -9,7 +9,7 @@ import MacroSplitTypes from '../../constants/MacroSplitTypes';
 import ModalTypes from '../../constants/ModalTypes';
 import SettingTypes from '../../constants/SettingTypes';
 import PlanBoard from './PlanBoard';
-import Popup from '../../Popup';
+import Popup from '../../components/PopUp';
 import { Card, CardHeader, CardTitle, CardBody } from '../../components/Card';
 import { Alert, Label, FlatButton, Button, IconBox } from '../../components/UI';
 import { PlanInfo, PlanInfoItem } from '../../components/Plan';
