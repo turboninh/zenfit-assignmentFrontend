@@ -1,0 +1,29 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": { 
+    "no-console": "error"
+  },
+  "overrides": [
+		{
+			"files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+			"parserOptions": {
+				"project": ["tsconfig(.*)?.json"]
+			},
+			"rules": {
+				"@typescript-eslint/ban-types": "off",
+				"@typescript-eslint/comma-dangle": "off",
+				"@typescript-eslint/dot-notation": "off",
+        "@typescript-eslint/no-empty-function": "off",
+      }
+    }
+  ]
+}
