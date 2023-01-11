@@ -22,6 +22,7 @@
   - Consider https://github.com/styled-system/styled-system
 - Theme
 - Storybook (Maybe also Chromatic for regression)
+- Inconsistency of terms : `recipe` vs `dish`, `Card` in `Dish.js` ???
 
 ### Opinion
 - Maybe get rid of `export default`

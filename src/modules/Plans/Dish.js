@@ -21,7 +21,7 @@ class Card extends Component {
 		const { dish, isDragging, connectDragSource, connectDropTarget } = this.props;
 
 		const opacity = isDragging ? 0 : 1;
-		const diff = Math.round(Math.abs(dish.ideal_kcals - dish.totals.kcal));
+		const diff = Math.round(Math.abs(dish.ideal_kcals - dish?.totals?.kcal || 0));
 
 		return (
 			<Dish ref={(instance) => connectDragSource(connectDropTarget(instance))} style={{ opacity }}>
@@ -36,7 +36,7 @@ class Card extends Component {
 				</DishImageBox>
 				<DishCaption>
 					<h5>{dish.name}</h5>
-					<span>{dish.totals.kcal} kcals</span>
+					{dish?.totals?.kcal && <span>{dish.totals.kcal} kcals</span>}
 				</DishCaption>
 				<DishActions>
 					<span
@@ -47,9 +47,11 @@ class Card extends Component {
 						Delete
 					</span>
 				</DishActions>
-				<DishPopover hidden={isDragging}>
-					{dish.totals.kcal} kcals: {dish.name} (#{dish.order})
-				</DishPopover>
+				{dish?.totals?.kcal && (
+					<DishPopover hidden={isDragging}>
+						{dish?.totals?.kcal} kcals: {dish.name} (#{dish.order})
+					</DishPopover>
+				)}
 			</Dish>
 		);
 	}

@@ -1,6 +1,10 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
+  "env": {
+    "browser": "true",
+    "node": "true",
+  },
   "plugins": [
     "@typescript-eslint"
   ],
@@ -10,7 +14,7 @@
     "plugin:@typescript-eslint/recommended"
   ],
   "rules": { 
-    "no-console": "error"
+    "no-console": "off"
   },
   "overrides": [
 		{
@@ -23,6 +27,7 @@
 				"@typescript-eslint/comma-dangle": "off",
 				"@typescript-eslint/dot-notation": "off",
         "@typescript-eslint/no-empty-function": "off",
+        "no-console": "off"
       }
     }
   ]
