@@ -3,6 +3,8 @@ import { findDOMNode } from 'react-dom';
 import { DragSource, DropTarget } from 'react-dnd';
 import flow from 'lodash/flow';
 import * as ItemTypes from '../../constants/ItemTypes';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import { ReactComponent as NotificationIcon } from 'remixicon/icons/Media/notification-2-fill.svg';
 import {
 	Dish,
@@ -13,56 +15,51 @@ import {
 	DishPopover,
 	DishOverlay,
 } from '../../components/Dish';
-import { IconButton, VerticalDivider } from '../../components/UI';
-import thumbnail from '../../assets/meal_thumbnail.png';
+import MealPlansContainer from '../../containers/MealPlans';
 
-class Card extends Component {
-	render() {
-		const { dish, isDragging, connectDragSource, connectDropTarget } = this.props;
+function Card({ dish, isDragging, connectDragSource, connectDropTarget, mealId, index }: any) {
+	const mealPlansContainer = MealPlansContainer.useContainer();
 
-		const opacity = isDragging ? 0 : 1;
-		const diff = Math.round(Math.abs(dish.ideal_kcals - dish?.totals?.kcal || 0));
+	const onRemoveRecipeFromPlan = (index: number) => {
+		mealPlansContainer.removeDish(mealId, index);
+	};
 
-		return (
-			<Dish ref={(instance) => connectDragSource(connectDropTarget(instance))} style={{ opacity }}>
-				<DishImageBox>
-					<DishImage src={dish.image} />
-					{diff > 25 && (
-						<DishOverlay>
-							<NotificationIcon />
-							<span>{diff} kcals off</span>
-						</DishOverlay>
-					)}
-				</DishImageBox>
-				<DishCaption>
-					<h5>{dish.name}</h5>
-					{dish?.totals?.kcal && <span>{dish.totals.kcal} kcals</span>}
-				</DishCaption>
-				<DishActions>
-					<span
-						onClick={() => {
-							alert('delete');
-						}}
-					>
-						Delete
-					</span>
-				</DishActions>
-				{dish?.totals?.kcal && (
-					<DishPopover hidden={isDragging}>
-						{dish?.totals?.kcal} kcals: {dish.name} (#{dish.order})
-					</DishPopover>
-				)}
-			</Dish>
-		);
-	}
-
-	handleRecipes = () => {
+	const handleRecipes = () => {
 		const { dish, onClickRecipes } = this.props;
 
 		if (onClickRecipes) {
 			onClickRecipes(dish);
 		}
 	};
+
+	const opacity = isDragging ? 0 : 1;
+	const diff = Math.round(Math.abs(dish.ideal_kcals - dish?.totals?.kcal || 0));
+
+	return (
+		<Dish ref={(instance) => connectDragSource(connectDropTarget(instance))} style={{ opacity }}>
+			<DishImageBox>
+				<DishImage src={dish.image} />
+				{diff > 25 && (
+					<DishOverlay>
+						<NotificationIcon />
+						<span>{diff} kcals off</span>
+					</DishOverlay>
+				)}
+			</DishImageBox>
+			<DishCaption>
+				<h5>{dish.name}</h5>
+				{dish?.totals?.kcal && <span>{dish.totals.kcal} kcals</span>}
+			</DishCaption>
+			<DishActions>
+				<span onClick={() => onRemoveRecipeFromPlan(index)}>Delete</span>
+			</DishActions>
+			{dish?.totals?.kcal && (
+				<DishPopover hidden={isDragging}>
+					{dish?.totals?.kcal} kcals: {dish.name} (#{dish.order})
+				</DishPopover>
+			)}
+		</Dish>
+	);
 }
 
 const cardSource = {
@@ -98,6 +95,8 @@ const cardTarget = {
 		}
 
 		// Determine rectangle on screen
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		// @ts-ignore
 		const hoverBoundingRect = findDOMNode(component).getBoundingClientRect();
 
 		// Get vertical middle
